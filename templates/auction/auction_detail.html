@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ auction.fish.name }} Auction{% endblock %}
+{% block content %}
+<h1>{{ auction.fish.name }} Auction</h1>
+<p>{{ auction.description }}</p>
+{% if auction.image %}
+<img src="{{ auction.image.url }}" alt="{{ auction.fish.name }}" class="auction-image" />
+{% endif %}
+<p>Starting bid: {{ auction.starting_bid }} USD</p>
+<p>Auction ends: {{ auction.end_time }}</p>
+<p>Owner: {{ auction.creator.username }}</p>
+
+<p>Size: {{ auction.size_cm }} cm</p>
+<p>Weight: {{ auction.weight_kg }} kg</p>
+
+{% if winner %}
+<p>Current highest bidder: {{ winner.username }}</p>
+{% else %}
+<p>No bids yet</p>
+{% endif %}
+
+{% if auction.is_ended %}
+<p>Auction has ended.</p>
+{% if winner %}
+<p>Winner: {{ winner.username }}</p>
+{% endif %}
+{% endif %}
+
+{% if request.user == auction.creator %}
+<h2>Manage Listing</h2>
+{% if not auction.is_ended %}
+<form action="{% url 'auction:end_auction' auction.id %}" method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-warning">End Auction Early</button>
+</form>
+{% endif %}
+<form action="{% url 'auction:delete_auction' auction.id %}" method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">Delete Auction</button>
+</form>
+{% endif %}
+
+{% if request.user.is_superuser or request.user.userprofile.user_type == 'admin' %}
+<h2>Admin Actions</h2>
+<form action="{% url 'auction:delete_auction' auction.id %}" method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">Delete Auction</button>
+</form>
+{% endif %}
+
+<h2>Bids</h2>
+<ul>
+  {% for bid in auction.bid_set.all %}
+  <li>{{ bid.bidder.username }} - {{ bid.amount }} USD</li>
+  {% endfor %}
+</ul>
+
+{% if not auction.is_ended and request.user.userprofile.user_type != 'seller' %}
+<h2>Place a bid</h2>
+<form action="{% url 'auction:place_bid' auction.id %}" method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Place Bid</button>
+</form>
+{% endif %}
+{% endblock %}

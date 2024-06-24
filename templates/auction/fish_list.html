@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Fish List</h1>
+<ul>
+  {% for fish in fishes %}
+  <li>{{ fish.name }} <a href="{% url 'delete_fish' fish.id %}">Delete</a></li>
+  {% endfor %}
+</ul>
+<a href="{% url 'add_fish' %}">Add Fish</a>
+{% endblock %}
