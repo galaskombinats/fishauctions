@@ -243,3 +243,93 @@ msgstr "Vecākais"
 
 msgid "Apply"
 msgstr "Piemērot"
+
+msgid "Carp"
+msgstr "Karpa"
+
+msgid "China"
+msgstr "Ķīna"
+
+msgid "India"
+msgstr "Indija"
+
+msgid "America"
+msgstr "Amerika"
+
+msgid "The body is quite high, slightly flattened from the sides. The mouth is directed downwards. The back is grayish or greenish-brown, the sides and belly are yellowish-silver, golden or yellowish-green. The anal fin and tail fin may be reddish. Mirror carp have scales covering only part of the body, while leather carp have a bare body or with individual scales."
+msgstr "Ķermenis samērā augsts, no sāniem nedaudz saplacināts. Mute vērsta uz leju. Mugura pelēcīga vai zaļganbrūna, sāni un vēders dzeltenīgi sudrabains, zeltains vai dzeltenīgi zaļgans. Anālā spura un astes spura var būt sarkanīga. Spoguļkarpām zvīņas sedz tikai daļu ķermeņa, bet ādas karpām ķermenis ir kails vai ar atsevišķām zvīņām."
+
+msgid "Tench"
+msgstr "Līnis"
+
+msgid "England"
+msgstr "Anglija"
+
+msgid "Germany"
+msgstr "Vācija"
+
+msgid "Poland"
+msgstr "Polija"
+
+msgid "Body is relatively high, slightly compressed from the sides. Mouth directed forward or slightly downward. Back is greenish-brown, sides greenish-yellow, belly yellowish. In males, the second ray of the ventral fin is significantly thicker than the others."
+msgstr "Ķermenis samērā augsts, no sāniem nedaudz saplacināts. Mute vērsta uz priekšu vai nedaudz uz leju. Mugura zaļganbrūna, sāni zaļgandzelteni, vēders dzeltenīgs. Tēviņiem vēdera spuras otrais stars ievērojami resnāks par pārējiem."
+
+msgid "Pike"
+msgstr "Līdaka"
+
+msgid "Sweden"
+msgstr "Zviedrija"
+
+msgid "Canada"
+msgstr "Kanāda"
+
+msgid "Russia"
+msgstr "Krievija"
+
+msgid "Body is slender, slightly compressed from the sides. Mouth with large teeth, directed forward. Back is greenish-black, sides greenish-gray or brownish with yellowish spots. The dorsal fin, anal fin, and tail fin have dark spots."
+msgstr "Ķermenis slaids, no sāniem nedaudz saplacināts. Mute ar lieliem zobiem, vērsta uz priekšu. Mugura zaļganmelna, sāni zaļgani pelēcīgi vai brūngani ar dzeltenīgiem plankumiem. Muguras spura, anālā spura un astes spura ar tumšiem plankumiem."
+
+msgid "Eel"
+msgstr "Zutis"
+
+msgid "Japan"
+msgstr "Japāna"
+
+msgid "Netherlands"
+msgstr "Nīderlande"
+
+msgid "Body is snake-like, covered with tiny scales, looks bare. Mouth with small teeth, directed forward. Back and upper part of the sides are greenish-brown, lower part of the sides and belly are yellowish. Ready for spawning migration individuals have black backs and upper sides, lower sides and belly are silver."
+msgstr "Ķermenis čūskveida, klāts ar sīkām zvīņām, izskatās kails. Mute ar sīkiem zobiem, vērsta uz priekšu. Mugura un sānu augšdaļa zaļganbrūna, sānu apakšdaļa un vēders dzeltenīgs. Nārsta migrācijai gataviem īpatņiem mugura un sānu augšdaļa melna, sānu apakšdaļa un vēders sudrabains."
+
+msgid "Bream"
+msgstr "Plaudis"
+
+msgid "Finland"
+msgstr "Somija"
+
+msgid "Thailand"
+msgstr "Taizeme"
+
+msgid "Nigeria"
+msgstr "Nigērija"
+
+msgid "Body is round in cross-section. Mouth with small teeth, directed forward or slightly downward. Gill covers with spines. Back is greenish-gray or greenish-brown, sides greenish-brown or grayish, belly yellowish or white. Upper body, dorsal fin, and tail fin with small dark spots."
+msgstr "Ķermenis šķērsgriezumā ieapaļš. Mute ar sīkiem zobiem, vērsta uz priekšu vai nedaudz uz leju. Žaunu vāki ar dzeloņiem. Mugura zaļganpelēka vai zaļganbrūna, sāni zaļganbrūni vai pelēcīgi, vēders dzeltenīgs vai balts. Ķermeņa augšdaļa, muguras spura un astes spura ar nelieliem tumšiem plankumiem."
+
+msgid "Catfish"
+msgstr "Sams"
+
+msgid "Body is round in cross-section. Head large, flattened from above. Mouth with small teeth, directed upwards. 2 long barbels on the upper jaw, 4 short barbels on the lower jaw. Body bare, without scales. Back and sides yellowish-green with dark spots, belly white."
+msgstr "Ķermenis šķērsgriezumā ieapaļš. Galva liela, no augšas saplacināta. Mute ar sīkiem zobiem, vērsta uz augšu. Pie augšžokļa 2 gari, pie apakšžokļa 4 īsi taustekļi. Ķermenis kails, bez zvīņām. Mugura un sāni dzeltenīgi zaļi ar tumšiem plankumiem, vēders balts."
+
+msgid "Perch"
+msgstr "Asaris"
+
+msgid "Body is relatively high, compressed from the sides. Mouth with small teeth, directed forward. Back is greenish-brown, sides greenish-yellow, belly yellowish or white. 5-9 dark cross-stripes on the sides. Black spot at the end of the first dorsal fin. Ventral fins, anal fin, and tail fin are red or orange."
+msgstr "Ķermenis samērā augsts, no sāniem saplacināts. Mute ar sīkiem zobiem, vērsta uz priekšu. Mugura zaļganbrūna, sāni zaļgandzelteni, vēders dzeltenīgs vai balts. Uz sāniem 5-9 tumšas šķērssvītras. Pirmās muguras spuras galā melns plankums. Vēdera spuras, anālā spura un astes spura sarkana vai oranža."
+
+msgid "Roach"
+msgstr "Rauda"
+
+msgid "Body is relatively high, slightly compressed from the sides. Mouth directed forward or slightly downward. Back is bluish-green or bluish-brown, sides and belly silver. Before spawning, males develop spawning tubercles on the body and head."
+msgstr "Ķermenis samērā augsts, no sāniem nedaudz saplacināts. Mute vērsta uz priekšu vai nedaudz uz leju. Mugura zilganzaļa vai zilganbrūna, sāni un vēders sudrabains. Pirms nārsta tēviņiem uz ķermeņa un galvas izveidojas nārsta kārpiņas."
