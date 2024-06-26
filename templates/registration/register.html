@@ -1,9 +1,93 @@
-{% extends 'base.html' %} {% load i18n %}{% block title %}{% trans "Register" %}{% endblock %} {% block content %}
-<div class="container mt-5">
-  <h2>{% trans "Register" %}</h2>
-  <form method="post">
-    {% csrf_token %} {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">{% trans "Register" %}</button>
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Register" %}{% endblock %}
+{% block content %}
+<div class="form-container">
+  <h2 class="profile-header">{% trans "Register" %}</h2>
+  <form method="post" class="styled-form">
+    {% csrf_token %}
+    <div class="form-grid">
+      <div class="form-grid-item">
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        {% if form.username.errors %}
+        <div class="error-message">
+          {% for error in form.username.errors %}
+            <p class="error-text">{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      <div class="form-grid-item">
+        {{ form.email.label_tag }}
+        {{ form.email }}
+        {% if form.email.errors %}
+        <div class="error-message">
+          {% for error in form.email.errors %}
+            <p class="error-text">{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      <div class="form-grid-item">
+        {{ form.first_name.label_tag }}
+        {{ form.first_name }}
+        {% if form.first_name.errors %}
+        <div class="error-message">
+          {% for error in form.first_name.errors %}
+            <p class="error-text">{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      <div class="form-grid-item">
+        {{ form.last_name.label_tag }}
+        {{ form.last_name }}
+        {% if form.last_name.errors %}
+        <div class="error-message">
+          {% for error in form.last_name.errors %}
+            <p class="error-text">{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      <div class="form-grid-item">
+        {{ form.password.label_tag }}
+        {{ form.password }}
+        {% if form.password.errors %}
+        <div class="error-message">
+          {% for error in form.password.errors %}
+            <p class="error-text">{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      <div class="form-grid-item">
+        {{ form.password2.label_tag }}
+        {{ form.password2 }}
+        {% if form.password2.errors %}
+        <div class="error-message">
+          {% for error in form.password2.errors %}
+            <p class="error-text">{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      <div class="form-grid-item">
+        {{ form.user_type.label_tag }}
+        {{ form.user_type }}
+        {% if form.user_type.errors %}
+        <div class="error-message">
+          {% for error in form.user_type.errors %}
+            <p class="error-text">{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      <div class="form-grid-item form-submit">
+        <button type="submit" class="btn btn-primary">{% trans "Register" %}</button>
+      </div>
+    </div>
   </form>
 </div>
 {% endblock %}

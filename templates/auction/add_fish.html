@@ -1,8 +1,39 @@
-{% extends 'base.html' %} {% load i18n %}{% block content %}
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
 <h1>{% trans "Add Fish" %}</h1>
-<form method="post">
-  {% csrf_token %} {{ form.as_p }}
-  <button type="submit">{% trans "Add Fish" %}</button>
-</form>
-<a href="{% url 'fish_list' %}">{% trans "Back to Fish List" %}</a>
+<div class="add-fish-form">
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-grid">
+      <div class="form-grid-item">
+        {{ form.name.label_tag }}
+        {{ form.name }}
+        {% if form.name.errors %}
+        <div class="error-message">
+          {% for error in form.name.errors %}
+            <p class="error-text">{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      <div class="form-grid-item">
+        {{ form.description.label_tag }}
+        {{ form.description }}
+        {% if form.description.errors %}
+        <div class="error-message">
+          {% for error in form.description.errors %}
+            <p class="error-text">{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      <!-- Add other form fields here in a similar manner -->
+      <div class="form-grid-item">
+        <button type="submit" class="btn btn-primary">{% trans "Add Fish" %}</button>
+      </div>
+    </div>
+  </form>
+  <a href="{% url 'fish_list' %}" class="btn btn-secondary">{% trans "Back to Fish List" %}</a>
+</div>
 {% endblock %}

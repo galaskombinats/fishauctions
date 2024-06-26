@@ -1,9 +1,29 @@
-{% extends 'base.html' %} {% load i18n %}{% block title %}{% trans "Login" %}{% endblock %} {% block content %}
-<h2>{% trans "Login" %}</h2>
-<form method="post">
-  {% csrf_token %} {{ form.as_p }}
-  <button type="submit">{% trans "Login" %}</button>
-</form>
-{% if error %}
-<p style="color: red">{{ error }}</p>
-{% endif %} {% endblock %}
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Login" %}{% endblock %}
+{% block content %}
+<h2 class="page-title">{% trans "Login" %}</h2>
+<div class="login-form-container">
+  <form method="post" class="login-form">
+    {% csrf_token %}
+    <div class="form-grid">
+      <div class="form-grid-item">
+        {{ form.username.label_tag }}
+        {{ form.username }}
+      </div>
+      <div class="form-grid-item">
+        {{ form.password.label_tag }}
+        {{ form.password }}
+      </div>
+      <div class="form-grid-item form-submit">
+        <button type="submit" class="btn btn-primary">{% trans "Login" %}</button>
+      </div>
+    </div>
+  </form>
+  {% if error %}
+  <div class="error-message">
+    <p class="error-text">{{ error }}</p>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,12 +1,27 @@
-<!-- auction/templates/auction/place_bid.html -->
 {% extends 'base.html' %}
 {% load i18n %}
 {% block title %}{% trans "Place Bid" %}{% endblock %}
 {% block content %}
 <h1>{% trans "Place a bid for" %} {{ auction.fish.name }}</h1>
-<form action="" method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">{% trans "Place Bid" %}</button>
-</form>
+<div class="place-bid-form">
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="form-grid">
+      <div class="form-grid-item">
+        {{ form.amount.label_tag }}
+        {{ form.amount }}
+        {% if form.amount.errors %}
+        <div class="error-message">
+          {% for error in form.amount.errors %}
+            <p class="error-text">{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      <div class="form-grid-item">
+        <button type="submit" class="btn btn-primary">{% trans "Place Bid" %}</button>
+      </div>
+    </div>
+  </form>
+</div>
 {% endblock %}
