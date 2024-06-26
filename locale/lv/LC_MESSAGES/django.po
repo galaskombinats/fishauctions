@@ -1,0 +1,224 @@
+#
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-06-26 18:49+0300\n"
+"Last-Translator:   <jronicgale@gmail.com>\n"
+"Language: lv\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
+
+msgid "Fish House"
+msgstr "Zivju māja"
+
+msgid "Home"
+msgstr "Mājas"
+
+msgid "Listings"
+msgstr "Izsoles"
+
+msgid "Create Auction"
+msgstr "Izveidot izsoli"
+
+msgid "Manage Fish"
+msgstr "Pārvaldīt zivis"
+
+msgid "User List"
+msgstr "Lietotāju saraksts"
+
+msgid "Profile"
+msgstr "Profils"
+
+msgid "Logout"
+msgstr "Izrakstīties"
+
+msgid "Login"
+msgstr "Pieteikties"
+
+msgid "Register"
+msgstr "Reģistrēties"
+
+msgid "Go"
+msgstr "Aiziet"
+
+msgid "Welcome to the Fish House"
+msgstr "Laipni lūdzam Zivju Mājā"
+
+msgid "Username"
+msgstr "Lietotājvārds"
+
+msgid "First Name"
+msgstr "Vārds"
+
+msgid "Last Name"
+msgstr "Uzvārds"
+
+msgid "Email"
+msgstr "E-pasts"
+
+msgid "User Type"
+msgstr "Lietotāja tips"
+
+msgid "Actions"
+msgstr "Darbības"
+
+msgid "Edit"
+msgstr "Rediģēt"
+
+msgid "Delete"
+msgstr "Dzēst"
+
+msgid "Acquired Fish"
+msgstr "Iegūtās zivis"
+
+msgid "Owner"
+msgstr "Īpašnieks"
+
+msgid "No acquired fish yet."
+msgstr "Vēl nav iegūtu zivju."
+
+msgid "Active Listings"
+msgstr "Aktīvie saraksti"
+
+msgid "Current highest bid"
+msgstr "Pašreizējais augstākais solis"
+
+msgid "No bids yet"
+msgstr "Vēl nav solījumu"
+
+msgid "No active listings available."
+msgstr "Nav pieejamu aktīvu sarakstu."
+
+msgid "Place Bid"
+msgstr "Veikt solījumu"
+
+msgid "Auction"
+msgstr "Izsole"
+
+msgid "Starting bid"
+msgstr "Sākuma solis"
+
+msgid "Auction ends"
+msgstr "Izsole beidzas"
+
+msgid "Size"
+msgstr "Izmērs"
+
+msgid "Weight"
+msgstr "Svars"
+
+msgid "Current highest bidder"
+msgstr "Pašreizējais augstākais solītājs"
+
+msgid "Auction has ended."
+msgstr "Izsole ir beigusies."
+
+msgid "Winner"
+msgstr "Uzvarētājs"
+
+msgid "Manage Listing"
+msgstr "Pārvaldīt sarakstu"
+
+msgid "End Auction Early"
+msgstr "Beigt izsoli agrāk"
+
+msgid "Delete Auction"
+msgstr "Dzēst izsoli"
+
+msgid "Admin Actions"
+msgstr "Admina darbības"
+
+msgid "Bids"
+msgstr "Solījumi"
+
+msgid "Place a bid"
+msgstr "Veikt solījumu"
+
+msgid "Add Fish"
+msgstr "Pievienot zivis"
+
+msgid "Back to Fish List"
+msgstr "Atpakaļ uz zivju sarakstu"
+
+msgid "Name"
+msgstr "Vārds"
+
+msgid "Duration (hours)"
+msgstr "Ilgums (stundas)"
+
+msgid "Duration (minutes)"
+msgstr "Ilgums (minūtes)"
+
+msgid "Fish"
+msgstr "Zivs"
+
+msgid "Starting Bid"
+msgstr "Sākuma solis"
+
+msgid "Description"
+msgstr "Apraksts"
+
+msgid "Size (cm)"
+msgstr "Izmērs (cm)"
+
+msgid "Weight (kg)"
+msgstr "Svars (kg)"
+
+msgid "Image"
+msgstr "Attēls"
+
+msgid "Buyer"
+msgstr "Pircējs"
+
+msgid "Seller"
+msgstr "Pārdevējs"
+
+msgid "Password"
+msgstr "Parole"
+
+msgid "Repeat password"
+msgstr "Atkārtot paroli"
+
+msgid "Your bid must be higher than the starting bid."
+msgstr "Jūsu solis ir jābūt augstākam par sākuma soli."
+
+msgid "Your bid must be higher than the current highest bid."
+msgstr "Jūsu solis ir jābūt augstākam par pašreizējo augstāko soli."
+
+msgid "Please enter both password fields."
+msgstr "Lūdzu, ievadiet abas paroles laukus."
+
+msgid "Passwords don’t match."
+msgstr "Paroles nesakrīt."
+
+msgid "Title"
+msgstr "Nosaukums"
+
+msgid "End Time"
+msgstr "Beigu laiks"
+
+msgid "Creator"
+msgstr "Izveidotājs"
+
+msgid "Is Ended"
+msgstr "Ir beidzies"
+
+msgid "Bidder"
+msgstr "Solītājs"
+
+msgid "Amount"
+msgstr "Summa"
+
+msgid "Bid Time"
+msgstr "Solījuma laiks"
+
+msgid "Task Name"
+msgstr "Uzdevuma nosaukums"
+
+msgid "Execution Time"
+msgstr "Izpildes laiks"
+
+msgid "Auction ID"
+msgstr "Izsoles ID"
+
+msgid "Ended"
+msgstr "Beidzies"

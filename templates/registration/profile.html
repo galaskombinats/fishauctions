@@ -1,36 +1,31 @@
-<!-- auction/templates/registration/profile.html -->
-{% extends 'base.html' %}
+{% extends 'base.html' %}{% load i18n %} {% block title %}{{ user.username }}{% trans "'s Profile" %}{% endblock %} {% block content %}
+<h1>{{ user.username }}{% trans "'s Profile" %}</h1>
 
-{% block title %}{{ user.username }}'s Profile{% endblock %}
-
-{% block content %}
-<h1>{{ user.username }}'s Profile</h1>
-
-<h2>Acquired Fish</h2>
+<h2>{% trans "Acquired Fish" %}</h2>
 <ul>
   {% for auction in acquired_auctions %}
   <li>
     <a href="{% url 'auction:auction_detail' auction.id %}">{{ auction.fish.name }}</a>
-    <p>Owner: {{ auction.creator.username }}</p>
+    <p>{% trans "Owner:" %} {{ auction.creator.username }}</p>
   </li>
   {% empty %}
-  <li>No acquired fish yet.</li>
+  <li>{% trans "No acquired fish yet." %}</li>
   {% endfor %}
 </ul>
 
-<h2>Active Listings</h2>
+<h2>{% trans "Active Listings" %}</h2>
 <ul>
   {% for auction, highest_bid in listings_with_bids %}
   <li>
     <a href="{% url 'auction:auction_detail' auction.id %}">{{ auction.fish.name }}</a>
     {% if highest_bid %}
-    <p>Current highest bid: {{ highest_bid.amount }} USD</p>
+    <p>{% trans "Current highest bid:" %} {{ highest_bid.amount }} USD</p>
     {% else %}
-    <p>No bids yet</p>
+    <p>{% trans "No bids yet" %}</p>
     {% endif %}
   </li>
   {% empty %}
-  <li>No active listings available.</li>
+  <li>{% trans "No active listings available." %}</li>
   {% endfor %}
 </ul>
 {% endblock %}

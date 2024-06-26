@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block title %}Edit User{% endblock %} {% block content %}
+{% extends 'base.html' %} {% load i18n %}{% block title %}Edit User{% endblock %} {% block content %}
 <h2>Edit User</h2>
 <form method="post">
   {% csrf_token %} {{ user_form.as_p }} {{ profile_form.as_p }}

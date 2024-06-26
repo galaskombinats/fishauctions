@@ -1,12 +1,16 @@
-# fishauction/urls.py
 from django.contrib import admin
 from django.urls import path, include
 from auction import views as auction_views
 from django.conf import settings
 from django.conf.urls.static import static
-
+from django.conf.urls.i18n import i18n_patterns  # Add this import for language switching
 
 urlpatterns = [
+    path('i18n/', include('django.conf.urls.i18n')),  # Add this line for language switching
+    path('rosetta/', include('rosetta.urls')),  # Add this line for Rosetta
+]
+
+urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('', auction_views.homepage, name='homepage'),
     path('accounts/login/', auction_views.user_login, name='login'),
@@ -19,7 +23,7 @@ urlpatterns = [
     path('users/', auction_views.user_list, name='user_list'),
     path('users/edit/<int:user_id>/', auction_views.edit_user, name='edit_user'),
     path('users/delete/<int:user_id>/', auction_views.delete_user, name='delete_user'),
-]
+)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

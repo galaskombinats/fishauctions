@@ -1,10 +1,9 @@
-<!-- auction/templates/auction/register.html -->
-{% extends 'base.html' %} {% block title %}Register{% endblock %} {% block content %}
+{% extends 'base.html' %} {% load i18n %}{% block title %}{% trans "Register" %}{% endblock %} {% block content %}
 <div class="container mt-5">
-  <h2>Register</h2>
+  <h2>{% trans "Register" %}</h2>
   <form method="post">
     {% csrf_token %} {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Register</button>
+    <button type="submit" class="btn btn-primary">{% trans "Register" %}</button>
   </form>
 </div>
 {% endblock %}
