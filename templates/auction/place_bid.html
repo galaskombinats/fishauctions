@@ -1,7 +1,12 @@
-{% extends 'base.html' %}{% load i18n %} {% block title %}{% trans "Place Bid" %}{% endblock %} {% block content %}
+<!-- auction/templates/auction/place_bid.html -->
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Place Bid" %}{% endblock %}
+{% block content %}
 <h1>{% trans "Place a bid for" %} {{ auction.fish.name }}</h1>
 <form action="" method="post">
-  {% csrf_token %} {{ form.as_p }}
+  {% csrf_token %}
+  {{ form.as_p }}
   <button type="submit">{% trans "Place Bid" %}</button>
 </form>
 {% endblock %}

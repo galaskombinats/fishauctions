@@ -65,9 +65,6 @@ class BidForm(forms.ModelForm):
     class Meta:
         model = Bid
         fields = ['amount']
-        labels = {
-            'amount': _('Amount'),
-        }
 
     def __init__(self, *args, **kwargs):
         self.auction = kwargs.pop('auction', None)
@@ -77,13 +74,11 @@ class BidForm(forms.ModelForm):
         amount = self.cleaned_data['amount']
         highest_bid = self.auction.bid_set.order_by('-amount').first()
 
-        # Ensure the bid is higher than the starting bid
         if amount < self.auction.starting_bid:
-            raise forms.ValidationError(_('Your bid must be higher than the starting bid.'))
+            raise forms.ValidationError('Your bid must be higher than the starting bid.')
 
-        # Ensure the bid is higher than the current highest bid, if there is one
         if highest_bid and amount <= highest_bid.amount:
-            raise forms.ValidationError(_('Your bid must be higher than the current highest bid.'))
+            raise forms.ValidationError('Your bid must be higher than the current highest bid.')
 
         return amount
 

@@ -1,9 +1,7 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% load static %}
-
 {% block title %}{{ auction.fish.name }}{% trans " Auction" %}{% endblock %}
-
 {% block content %}
 <h1>{{ auction.fish.name }}{% trans " Auction" %}</h1>
 <p>{{ auction.description }}</p>
@@ -22,14 +20,12 @@
 {% else %}
 <p>{% trans "No bids yet" %}</p>
 {% endif %}
-
 {% if auction.is_ended %}
 <p>{% trans "Auction has ended." %}</p>
 {% if winner %}
 <p>{% trans "Winner:" %} {{ winner.username }}</p>
 {% endif %}
 {% endif %}
-
 {% if request.user == auction.creator %}
 <h2>{% trans "Manage Listing" %}</h2>
 {% if not auction.is_ended %}
@@ -43,7 +39,6 @@
   <button type="submit" class="btn btn-danger">{% trans "Delete Auction" %}</button>
 </form>
 {% endif %}
-
 {% if request.user.is_superuser or request.user.userprofile.user_type == 'admin' %}
 <h2>{% trans "Admin Actions" %}</h2>
 <form action="{% url 'auction:delete_auction' auction.id %}" method="post">

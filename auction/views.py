@@ -13,7 +13,8 @@ import logging
 from django.utils.translation import gettext as _
 from django.db.models import Max, F
 from django.db.models.functions import Coalesce
-
+from asgiref.sync import async_to_sync
+from channels.layers import get_channel_layer
 
 logger = logging.getLogger(__name__)
 
@@ -229,21 +230,32 @@ def place_bid(request, auction_id):
             bid.auction = auction
             bid.bidder = request.user
             bid.save()
+
+            # Send message to WebSocket group
+            channel_layer = get_channel_layer()
+            async_to_sync(channel_layer.group_send)(
+                'auction_updates',
+                {
+                    'type': 'auction_message',
+                    'message': f'New bid placed: {bid.amount} by {bid.bidder.username}'
+                }
+            )
+
             return redirect('auction:auction_detail', auction_id=auction.id)
     else:
         form = BidForm(auction=auction)
 
     return render(request, 'auction/place_bid.html', {'form': form, 'auction': auction})
 
+
 @login_required
 def end_auction(request, auction_id):
     auction = get_object_or_404(Auction, pk=auction_id)
-    if request.user != auction.creator:
-        return redirect('auction:auction_detail', auction_id=auction.id)
-    auction.end_time = timezone.now()
-    auction.is_ended = True
-    auction.save()
-    return redirect('auction:auction_detail', auction_id=auction.id)
+    if request.user == auction.creator or request.user.is_superuser:
+        auction.is_ended = True
+        auction.end_time = timezone.now()
+        auction.save()
+    return redirect('auction:auction_detail', auction_id=auction_id)
 
 @login_required
 def delete_auction(request, auction_id):
@@ -275,12 +287,3 @@ def user_profile(request):
         listings_with_bids.append((auction, highest_bid))
     
     return render(request, 'registration/profile.html', {'acquired_auctions': acquired_auctions, 'listings_with_bids': listings_with_bids})
-
-def end_auction(request, auction_id):
-    auction = get_object_or_404(Auction, pk=auction_id)
-    if request.user == auction.creator:
-        auction.is_ended = True
-        auction.end_time = timezone.now()
-        auction.save()
-        end_auction_task.apply_async((auction_id,), eta=auction.end_time)
-    return redirect('auction:auction_detail', auction_id=auction_id)

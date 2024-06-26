@@ -16,13 +16,57 @@
   <button type="submit">{% trans "Apply" %}</button>
 </form>
 
-<ul>
+<ul id="auction-list">
   {% for auction, current_bid in auctions_with_bids %}
-  <li>
+  <li id="auction-{{ auction.id }}">
     <a href="{% url 'auction:auction_detail' auction.id %}">{{ auction.fish.name }}</a>
-    - {% trans "Current highest bid" %}: {{ current_bid }} EUR 
+    - {% trans "Current highest bid" %}: <span class="bid-amount">{{ current_bid }}</span> EUR 
     {% if auction.is_ended %} - <strong>{% trans "Ended" %}</strong>{% endif %}
   </li>
   {% endfor %}
 </ul>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const auctionList = document.getElementById('auction-list');
+    const userLang = navigator.language || navigator.userLanguage;
+    const socket = new WebSocket('ws://' + window.location.host + '/ws/auctions/');
+
+    socket.onmessage = function(event) {
+      const data = JSON.parse(event.data);
+      const auctionElement = document.getElementById('auction-' + data.auction_id);
+      if (auctionElement) {
+        auctionElement.querySelector('.bid-amount').textContent = data.bid;
+      }
+    };
+
+    socket.onclose = function(event) {
+      console.error('WebSocket closed unexpectedly');
+    };
+
+    socket.onerror = function(error) {
+      console.error('WebSocket error observed:', error);
+    };
+  });
+
+  const auctionSocket = new WebSocket('ws://127.0.0.1:8001/ws/auction/');
+
+  auctionSocket.onmessage = function(e) {
+      const data = JSON.parse(e.data);
+      console.log('Message received:', data.message);
+      // Update the bid list or other elements with the new bid information
+  };
+
+  auctionSocket.onclose = function(e) {
+      console.error('Chat socket closed unexpectedly');
+  };
+
+  function sendMessage(message) {
+      auctionSocket.send(JSON.stringify({
+          'message': message
+      }));
+  }
+</script>
 {% endblock %}

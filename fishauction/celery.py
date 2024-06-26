@@ -14,8 +14,8 @@ def debug_task(self):
     print(f'Request: {self.request!r}')
 
 app.conf.beat_schedule = {
-    'check-and-end-auctions': {
+    'check-and-end-auctions-every-minute': {
         'task': 'auction.tasks.end_auction_task',
-        'schedule': crontab(minute='*'),  # Runs every minute
+        'schedule': crontab(minute='*/1'),  # Adjust the schedule as needed
     },
 }
