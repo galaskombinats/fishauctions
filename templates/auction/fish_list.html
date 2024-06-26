@@ -1,9 +1,15 @@
-{% extends 'base.html' %} {% load i18n %}{% block content %}
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Fish List" %}{% endblock %}
+{% block content %}
 <h1>{% trans "Fish List" %}</h1>
-<ul>
+<div class="fish-list">
   {% for fish in fishes %}
-  <li>{{ fish.name }} <a href="{% url 'delete_fish' fish.id %}">{% trans "Delete" %}</a></li>
+  <div class="fish-item">
+    <span>{{ fish.name }}</span>
+    <a href="{% url 'delete_fish' fish.id %}" class="btn btn-danger">{% trans "Delete" %}</a>
+  </div>
   {% endfor %}
-</ul>
-<a href="{% url 'add_fish' %}">{% trans "Add Fish" %}</a>
+</div>
+<a href="{% url 'add_fish' %}" class="btn btn-primary add-fish-button">{% trans "Add Fish" %}</a>
 {% endblock %}

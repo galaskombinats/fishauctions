@@ -1,3 +1,290 @@
-{% extends 'base.html' %} {% load i18n %} {% block title %} {% trans "Homepage" %} {% endblock %} {% block content %}
-<h1>{% trans "Welcome to the Fish House" %}</h1>
-{% endblock %}
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/auction.css' %}" />
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico?v=2' %}" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>{% block title %}{% trans "Fish House - Home" %}{% endblock %}</title>
+  </head>
+  <body>
+    {% block content %}
+    <h1>{% trans "Fish" %}</h1>
+    <div class="fish">
+      <div class="fish-item">
+        <div class="fish-image">
+          <img id="Carp" class="image" src="{% static 'images/Carp.jpg' %}" alt="{% trans "Carp" %}" />
+        </div>
+        <div class="fish-info">
+          <div class="fish-location-sound">
+            <div class="fish-location">
+              <ol>
+                <li>{% trans "China" %}</li>
+                <li>{% trans "India" %}</li>
+                <li>{% trans "America" %}</li>
+              </ol>
+            </div>
+            <div class="fish-sound">
+              <button class="play-sound" data-sound="{% static 'sounds/Carp.mp3' %}">
+                <img class="sound-button-image" src="{% static 'images/sound-button.svg' %}" alt="{% trans "Sound Button" %}" />
+              </button>
+            </div>
+          </div>
+          <div class="fish-description">
+            <h2>{% trans "Carp" %}</h2>
+            <br />
+            <p class="description">
+              {% trans "The body is quite high, slightly flattened from the sides. The mouth is directed downwards. The back is grayish or greenish-brown, the sides and belly are yellowish-silver, golden or yellowish-green. The anal fin and tail fin may be reddish. Mirror carp have scales covering only part of the body, while leather carp have a bare body or with individual scales." %}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="fish-item">
+        <div class="fish-image">
+          <img id="Tench" class="image" src="{% static 'images/Tench.jpg' %}" alt="{% trans "Tench" %}" />
+        </div>
+        <div class="fish-info">
+          <div class="fish-location-sound">
+            <div class="fish-location">
+              <ol>
+                <li>{% trans "England" %}</li>
+                <li>{% trans "Germany" %}</li>
+                <li>{% trans "Poland" %}</li>
+              </ol>
+            </div>
+            <div class="fish-sound">
+              <button class="play-sound" data-sound="{% static 'sounds/Tench.mp3' %}">
+                <img class="sound-button-image" src="{% static 'images/sound-button.svg' %}" alt="{% trans "Sound Button" %}" />
+              </button>
+            </div>
+          </div>
+          <div class="fish-description">
+            <h2>{% trans "Tench" %}</h2>
+            <br />
+            <p class="description">
+              {% trans "The body is quite high, slightly flattened from the sides. The mouth is directed forward or slightly down. The back is greenish-brown, the sides are greenish-yellow, the belly is yellowish. The second ray of the male's ventral fin is significantly thicker than the others." %}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="fish-item">
+        <div class="fish-image">
+          <img id="Pike" class="image" src="{% static 'images/Pike.jpg' %}" alt="{% trans "Pike" %}" />
+        </div>
+        <div class="fish-info">
+          <div class="fish-location-sound">
+            <div class="fish-location">
+              <ol>
+                <li>{% trans "Sweden" %}</li>
+                <li>{% trans "Canada" %}</li>
+                <li>{% trans "Russia" %}</li>
+              </ol>
+            </div>
+            <div class="fish-sound">
+              <button class="play-sound" data-sound="{% static 'sounds/Pike.mp3' %}">
+                <img class="sound-button-image" src="{% static 'images/sound-button.svg' %}" alt="{% trans "Sound Button" %}" />
+              </button>
+            </div>
+          </div>
+          <div class="fish-description">
+            <h2>{% trans "Pike" %}</h2>
+            <br />
+            <p class="description">
+              {% trans "The body is slender, slightly flattened from the sides. The mouth with large teeth is directed forward. The back is greenish-black, the sides are greenish-gray or brownish with yellowish spots. The dorsal fin, anal fin, and tail fin have dark spots." %}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="fish-item">
+        <div class="fish-image">
+          <img id="Eel" class="image" src="{% static 'images/Eel.jpg' %}" alt="{% trans "Eel" %}" />
+        </div>
+        <div class="fish-info">
+          <div class="fish-location-sound">
+            <div class="fish-location">
+              <ol>
+                <li>{% trans "China" %}</li>
+                <li>{% trans "Japan" %}</li>
+                <li>{% trans "Netherlands" %}</li>
+              </ol>
+            </div>
+            <div class="fish-sound">
+              <button class="play-sound" data-sound="{% static 'sounds/Eel.mp3' %}">
+                <img class="sound-button-image" src="{% static 'images/sound-button.svg' %}" alt="{% trans "Sound Button" %}" />
+              </button>
+            </div>
+          </div>
+          <div class="fish-description">
+            <h2>{% trans "Eel" %}</h2>
+            <br />
+            <p class="description">
+              {% trans "The body is snake-like, covered with small scales, appears bare. The mouth with small teeth is directed forward. The back and upper part of the sides are greenish-brown, the lower part of the sides and belly are yellowish. Ready for spawning migration, the back and upper part of the sides are black, the lower part of the sides and belly are silver." %}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="fish-item">
+        <div class="fish-image">
+          <img id="Bream" class="image" src="{% static 'images/Bream.jpg' %}" alt="{% trans "Bream" %}" />
+        </div>
+        <div class="fish-info">
+          <div class="fish-location-sound">
+            <div class="fish-location">
+              <ol>
+                <li>{% trans "Russia" %}</li>
+                <li>{% trans "Finland" %}</li>
+                <li>{% trans "America" %}</li>
+              </ol>
+            </div>
+            <div class="fish-sound">
+              <button class="play-sound" data-sound="{% static 'sounds/Bream.mp3' %}">
+                <img class="sound-button-image" src="{% static 'images/sound-button.svg' %}" alt="{% trans "Sound Button" %}" />
+              </button>
+            </div>
+          </div>
+          <div class="fish-description">
+            <h2>{% trans "Bream" %}</h2>
+            <br />
+            <p class="description">
+              {% trans "The body is round in cross-section. The mouth with small teeth is directed forward or slightly down. Gill covers with spines. The back is greenish-gray or greenish-brown, the sides are greenish-brown or grayish, the belly is yellowish or white. The upper part of the body, dorsal fin, and tail fin with small dark spots." %}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="fish-item">
+        <div class="fish-image">
+          <img id="Catfish" class="image" src="{% static 'images/Catfish.jpg' %}" alt="{% trans "Catfish" %}" />
+        </div>
+        <div class="fish-info">
+          <div class="fish-location-sound">
+            <div class="fish-location">
+              <ol>
+                <li>{% trans "America" %}</li>
+                <li>{% trans "Thailand" %}</li>
+                <li>{% trans "Nigeria" %}</li>
+              </ol>
+            </div>
+            <div class="fish-sound">
+              <button class="play-sound" data-sound="{% static 'sounds/Catfish.mp3' %}">
+                <img class="sound-button-image" src="{% static 'images/sound-button.svg' %}" alt="{% trans "Sound Button" %}" />
+              </button>
+            </div>
+          </div>
+          <div class="fish-description">
+            <h2>{% trans "Catfish" %}</h2>
+            <br />
+            <p class="description">
+              {% trans "The body is round in cross-section. The head is large, flattened from the top. The mouth with small teeth is directed upward. Two long feelers on the upper jaw, four short ones on the lower jaw. The body is bare, without scales. The back and sides are yellowish-green with dark spots, the belly is white." %}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="fish-item">
+        <div class="fish-image">
+          <img id="Perch" class="image" src="{% static 'images/Perch.jpg' %}" alt="{% trans "Perch" %}" />
+        </div>
+        <div class="fish-info">
+          <div class="fish-location-sound">
+            <div class="fish-location">
+              <ol>
+                <li>{% trans "Sweden" %}</li>
+                <li>{% trans "Finland" %}</li>
+                <li>{% trans "America" %}</li>
+              </ol>
+            </div>
+            <div class="fish-sound">
+              <button class="play-sound" data-sound="{% static 'sounds/Perch.mp3' %}">
+                <img class="sound-button-image" src="{% static 'images/sound-button.svg' %}" alt="{% trans "Sound Button" %}" />
+              </button>
+            </div>
+          </div>
+          <div class="fish-description">
+            <h2>{% trans "Perch" %}</h2>
+            <br />
+            <p class="description">
+              {% trans "The body is quite high, flattened from the sides. The mouth with small teeth is directed forward. The back is greenish-brown, the sides are greenish-yellow, the belly is yellowish or white. There are 5-9 dark cross stripes on the sides. A black spot at the end of the first dorsal fin. The ventral fins, anal fin, and tail fin are red or orange." %}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="fish-item">
+        <div class="fish-image">
+          <img id="Roach" class="image" src="{% static 'images/Roach.jpg' %}" alt="{% trans "Roach" %}" />
+        </div>
+        <div class="fish-info">
+          <div class="fish-location-sound">
+            <div class="fish-location">
+              <ol>
+                <li>{% trans "Russia" %}</li>
+                <li>{% trans "England" %}</li>
+                <li>{% trans "Germany" %}</li>
+              </ol>
+            </div>
+            <div class="fish-sound">
+              <button class="play-sound" data-sound="{% static 'sounds/Roach.mp3' %}">
+                <img class="sound-button-image" src="{% static 'images/sound-button.svg' %}" alt="{% trans "Sound Button" %}" />
+              </button>
+            </div>
+          </div>
+          <div class="fish-description">
+            <h2>{% trans "Roach" %}</h2>
+            <br />
+            <p class="description">
+              {% trans "The body is quite high, slightly flattened from the sides. The mouth is directed forward or slightly down. The back is bluish-green or bluish-brown, the sides and belly are silver. Before spawning, males develop spawning tubercles on their body and head." %}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="fish-item">
+        <div class="fish-image">
+          <img id="Plaice" class="image" src="{% static 'images/Plaice.jpg' %}" alt="{% trans "Plaice" %}" />
+        </div>
+        <div class="fish-info">
+          <div class="fish-location-sound">
+            <div class="fish-location">
+              <ol>
+                <li>{% trans "Russia" %}</li>
+                <li>{% trans "Poland" %}</li>
+                <li>{% trans "England" %}</li>
+              </ol>
+            </div>
+            <div class="fish-sound">
+              <button class="play-sound" data-sound="{% static 'sounds/Plaice.mp3' %}">
+                <img class="sound-button-image" src="{% static 'images/sound-button.svg' %}" alt="{% trans "Sound Button" %}" />
+              </button>
+            </div>
+          </div>
+          <div class="fish-description">
+            <h2>{% trans "Plaice" %}</h2>
+            <br />
+            <p class="description">
+              {% trans "The body is high, flattened from the sides. The mouth is directed slightly down. The back is bluish-gray, the sides and belly are silver. Larger individuals (over 23 cm) are bronze-colored. Before spawning, males develop spawning tubercles on their heads." %}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <button id="footer-button">
+        {% trans "There is nothing here. Or is there, hmmm." %}
+      </button>
+      <div id="logo-bottom">
+        <button id="logo-button-bottom">
+          <img id="menu" src="{% static 'images/zivs-griezas.gif' %}" alt="{% trans "Fish Logo" %}" />
+        </button>
+      </div>
+      <div id="footer2">
+        <img id="footer" src="{% static 'images/footer.png' %}" alt="{% trans "Secret" %}" />
+        <p id="footer-text">
+          <b>{% trans "Latvian Fish Inspection" %}<br>{% trans "Riga, Purvciems, 1875" %}</b>
+          <i>{% trans "Oh, little fish, golden-winged, come play with me; I'll give you a treat on the end of a silk string." %}</i>
+        </p>
+      </div>
+    </footer>
+    {% endblock %}
+  </body>
+</html>

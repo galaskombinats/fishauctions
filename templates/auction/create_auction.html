@@ -1,7 +1,44 @@
-{% extends 'base.html' %} {% load i18n %}{% block content %}
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Create Auction" %}{% endblock %}
+{% block content %}
 <h1>{% trans "Create Auction" %}</h1>
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %} {{ form.as_p }}
-  <button type="submit">{% trans "Create Auction" %}</button>
+<form method="post" enctype="multipart/form-data" class="create-auction-form">
+  {% csrf_token %}
+  <div class="form-grid">
+    <div class="form-grid-item">
+      {{ form.fish.label_tag }}
+      {{ form.fish }}
+    </div>
+    <div class="form-grid-item">
+      {{ form.duration_hours.label_tag }}
+      {{ form.duration_hours }}
+    </div>
+    <div class="form-grid-item">
+      {{ form.duration_minutes.label_tag }}
+      {{ form.duration_minutes }}
+    </div>
+    <div class="form-grid-item">
+      {{ form.starting_bid.label_tag }}
+      {{ form.starting_bid }}
+    </div>
+    <div class="form-grid-item">
+      {{ form.size_cm.label_tag }}
+      {{ form.size_cm }}
+    </div>
+    <div class="form-grid-item">
+      {{ form.weight_kg.label_tag }}
+      {{ form.weight_kg }}
+    </div>
+    <div class="form-grid-item form-description">
+      {{ form.description.label_tag }}
+      {{ form.description }}
+    </div>
+    <div class="form-grid-item form-image">
+      {{ form.image.label_tag }}
+      {{ form.image }}
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">{% trans "Create Auction" %}</button>
 </form>
 {% endblock %}
