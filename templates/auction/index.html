@@ -1,11 +1,27 @@
-<!-- auction/templates/auction/index.html -->
-{% extends 'base.html' %}{% load i18n %} {% block title %}{% trans Listings %}{% endblock %} {% block content %}
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Listings" %}{% endblock %}
+{% block content %}
 <h1>{% trans "Listings" %}</h1>
+
+<form method="get" action="{% url 'auction:index' %}">
+  <label for="sort_by">{% trans "Filter by:" %}</label>
+  <select name="sort_by" id="sort_by">
+    <option value="end_time" {% if sort_by == 'end_time' %}selected{% endif %}>{% trans "All" %}</option>
+    <option value="highest_bid" {% if sort_by == 'highest_bid' %}selected{% endif %}>{% trans "Highest Bid" %}</option>
+    <option value="lowest_bid" {% if sort_by == 'lowest_bid' %}selected{% endif %}>{% trans "Lowest Bid" %}</option>
+    <option value="fastest_ending" {% if sort_by == 'fastest_ending' %}selected{% endif %}>{% trans "Fastest Ending" %}</option>
+    <option value="oldest" {% if sort_by == 'oldest' %}selected{% endif %}>{% trans "Oldest" %}</option>
+  </select>
+  <button type="submit">{% trans "Apply" %}</button>
+</form>
+
 <ul>
   {% for auction, current_bid in auctions_with_bids %}
   <li>
     <a href="{% url 'auction:auction_detail' auction.id %}">{{ auction.fish.name }}</a>
-    - {% trans "Current highest bid"%} : {{ current_bid }} EUR {% if auction.is_ended %} - <strong>{% trans "Ended"%} </strong>{% endif %}
+    - {% trans "Current highest bid" %}: {{ current_bid }} EUR 
+    {% if auction.is_ended %} - <strong>{% trans "Ended" %}</strong>{% endif %}
   </li>
   {% endfor %}
 </ul>

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2024-06-26 18:49+0300\n"
-"Last-Translator:   <jronicgale@gmail.com>\n"
+"Last-Translator: <jronicgale@gmail.com>\n"
 "Language: lv\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
@@ -222,3 +222,24 @@ msgstr "Izsoles ID"
 
 msgid "Ended"
 msgstr "Beidzies"
+
+msgid "Filter by:"
+msgstr "Filtrēt pēc:"
+
+msgid "All"
+msgstr "Visi"
+
+msgid "Highest Bid"
+msgstr "Augstākais solis"
+
+msgid "Lowest Bid"
+msgstr "Zemākais solis"
+
+msgid "Fastest Ending"
+msgstr "Ātrāk beidzas"
+
+msgid "Oldest"
+msgstr "Vecākais"
+
+msgid "Apply"
+msgstr "Piemērot"

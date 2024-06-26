@@ -11,6 +11,8 @@ from django.utils import timezone
 from .tasks import end_auction_task
 import logging
 from django.utils.translation import gettext as _
+from django.db.models import Max, F
+from django.db.models.functions import Coalesce
 
 
 logger = logging.getLogger(__name__)
@@ -94,21 +96,35 @@ def homepage(request):
     return render(request, 'homepage.html')
 
 def index(request):
+    sort_by = request.GET.get('sort_by', 'end_time')
+    
     if request.user.is_authenticated:
         if request.user.is_superuser or request.user.userprofile.user_type == 'admin':
-            auctions = Auction.objects.all().order_by('-end_time')
+            auctions = Auction.objects.all()
         else:
-            auctions = Auction.objects.filter(is_ended=False).order_by('-end_time') | Auction.objects.filter(creator=request.user).order_by('-end_time')
+            auctions = Auction.objects.filter(is_ended=False) | Auction.objects.filter(creator=request.user)
     else:
-        auctions = Auction.objects.filter(is_ended=False).order_by('-end_time')
+        auctions = Auction.objects.filter(is_ended=False)
+
+    # Annotate auctions with the highest bid
+    auctions = auctions.annotate(highest_bid=Coalesce(Max('bid__amount'), F('starting_bid')))
+    
+    if sort_by == 'highest_bid':
+        auctions = auctions.order_by('-highest_bid')
+    elif sort_by == 'lowest_bid':
+        auctions = auctions.order_by('highest_bid')
+    elif sort_by == 'fastest_ending':
+        auctions = auctions.order_by('end_time')
+    elif sort_by == 'oldest':
+        auctions = auctions.order_by('-end_time')
 
     auctions_with_bids = []
     for auction in auctions:
         highest_bid = auction.bid_set.order_by('-amount').first()
         highest_bid_amount = highest_bid.amount if highest_bid else auction.starting_bid
         auctions_with_bids.append((auction, highest_bid_amount))
-    return render(request, 'auction/index.html', {'auctions_with_bids': auctions_with_bids})
 
+    return render(request, 'auction/index.html', {'auctions_with_bids': auctions_with_bids, 'sort_by': sort_by})
 
 def redirect_to_homepage(request):
     return redirect('homepage')
