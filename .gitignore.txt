@@ -1,0 +1,26 @@
+# .gitignore
+
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+fishauction_env/
+
+# Django
+*.log
+*.pot
+*.pyc
+*.mo
+*.egg-info/
+.env
+
+# Database
+db.sqlite3
+
+# Static and media files
+/static/
+/media/
