@@ -7,8 +7,11 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from datetime import datetime, timedelta
 from django.contrib.auth.models import User
-from django.db import models
+from django.utils import timezone
+from .tasks import end_auction_task
+import logging
 
+logger = logging.getLogger(__name__)
 
 @login_required
 def delete_auction(request, auction_id):
@@ -219,7 +222,7 @@ def end_auction(request, auction_id):
     auction = get_object_or_404(Auction, pk=auction_id)
     if request.user != auction.creator:
         return redirect('auction:auction_detail', auction_id=auction.id)
-    auction.end_time = datetime.now()
+    auction.end_time = timezone.now()
     auction.is_ended = True
     auction.save()
     return redirect('auction:auction_detail', auction_id=auction.id)
@@ -254,3 +257,12 @@ def user_profile(request):
         listings_with_bids.append((auction, highest_bid))
     
     return render(request, 'registration/profile.html', {'acquired_auctions': acquired_auctions, 'listings_with_bids': listings_with_bids})
+
+def end_auction(request, auction_id):
+    auction = get_object_or_404(Auction, pk=auction_id)
+    if request.user == auction.creator:
+        auction.is_ended = True
+        auction.end_time = timezone.now()
+        auction.save()
+        end_auction_task.apply_async((auction_id,), eta=auction.end_time)
+    return redirect('auction:auction_detail', auction_id=auction_id)

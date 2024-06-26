@@ -46,3 +46,11 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+class TaskExecution(models.Model):
+    task_name = models.CharField(max_length=255)
+    execution_time = models.DateTimeField(auto_now_add=True)
+    auction_id = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.task_name} executed at {self.execution_time} for auction_id {self.auction_id}"
